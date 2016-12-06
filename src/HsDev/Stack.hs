@@ -64,7 +64,7 @@ stack cmd' = hsdevLiftIO $ do
 	stackExe <- Util.withCurrentDirectory (takeDirectory curExe) $
 		liftIO (findExecutable "stack") >>= maybe (hsdevError $ ToolNotFound "stack") return
 	comp <- stackCompiler
-	liftIO $ readProcess stackExe (cmd' ++ ["--compiler", comp, "--arch", stackArch]) ""
+	liftIO $ readProcess stackExe (["--compiler", comp, "--arch", stackArch] ++ cmd') ""
 
 -- | Make yaml opts
 yaml :: Maybe FilePath -> [String]
