@@ -3,3 +3,5 @@
 dist
 *.log
 *.*~
+.stack-work
+tests/test-package/.stack-work
